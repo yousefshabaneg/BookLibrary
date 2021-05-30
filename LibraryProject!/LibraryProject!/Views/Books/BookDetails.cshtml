@@ -1,0 +1,32 @@
+﻿@model LibraryProject_.Models.Book
+@{
+    ViewBag.Title = "Book Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<ul class="list-group">
+    <li class="list-group-item list-group-item-action active mt-3">
+        <h1 class="">Title: @Model.Title</h1>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <h6>
+            <span class="text-muted" style="margin-right: 5px">Publisher: </span>
+            @Model.publisher.Name
+        </h6>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <h6>
+            <span class="text-muted" style="margin-right: 5px">Price: </span>
+            @Model.Price
+        </h6>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <h6>
+            <span class="text-muted" style="margin-right: 5px">Image: </span>
+            <img class="card-img-top" style="width: 150px; height: 150px;"
+                 src="~/Content/images/@Model.Url" />
+        </h6>
+    </li>
+
+</ul>

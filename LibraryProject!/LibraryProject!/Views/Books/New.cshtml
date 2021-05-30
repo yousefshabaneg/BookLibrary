@@ -1,0 +1,48 @@
+﻿@model LibraryProject_.Models.NewBookViewModel
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="alert alert-info mt-3">@ViewBag.Name</h2>
+@using (@Html.BeginForm("Save", "Books"))
+{
+    @Html.ValidationSummary(true, "Please Fix the following errors.")
+    <div class="form-group">
+        @Html.LabelFor(m => m.book.Title)
+        @Html.TextBoxFor(m => m.book.Title, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.book.Title)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.book.Author)
+        @Html.TextBoxFor(m => m.book.Author, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.book.Author)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.book.Price)
+        @Html.TextBoxFor(m => m.book.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.book.Price)
+    </div>
+    <div>
+        <label>Publshier name</label>
+        @Html.DropDownListFor(m => m.book.publisherId, new SelectList  (Model.publshiers, "Id", "Name"), "Select Publisher", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.book.Url)
+        @Html.TextBoxFor(m => m.book.Url, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.book.Url)
+    </div>
+    <div>
+        <label>Is Available</label>
+        @Html.DropDownListFor(m => m.book.avaliable, new List<SelectListItem> { new SelectListItem { Text = "Yes", Value = "true" }, new SelectListItem { Text = "No", Value = "false" }}, null, new { @class = "form-control" })
+    </div>
+    <br>
+    @Html.HiddenFor(m=>m.book.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary" >Save</button>
+
+}
+
+
+
+

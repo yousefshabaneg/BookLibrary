@@ -1,0 +1,48 @@
+﻿@model IEnumerable<LibraryProject_.Models.publisher>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br>
+@Html.ActionLink("New Publisher", "New", "Publisher", new { @class = "btn mb-3" })
+
+<h2 class="alert alert-info">Publishers</h2>
+
+@if (!Model.Any())
+{
+    <p>we dont have Publishers</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr class="table-danger">
+                <th>Publisher Name</th>
+                <th>Address</th>
+                <th style="width: 25%">Actions</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var b in Model)
+{
+    using (Html.BeginForm("Delete", "Publisher", new { id = b.Id }))
+    {
+        <tr class="table-warning">
+            <td>@Html.ActionLink(b.Name, "Edit", "Publisher", new { id = b.Id }, null)</td>
+            <td>@b.Address</td>
+            <td>
+                <a class="btn mr-2" href="/Publisher/Edit/@b.Id">Edit</a>
+                <input type="submit" value="Delete" class="btn btn-danger"
+                       onclick="return confirm('Are you sure to delete this Book with ID = @b.Id');" />
+            </td>
+        </tr>
+    }
+
+}
+        </tbody>
+
+    </table>
+}
+

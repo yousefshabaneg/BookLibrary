@@ -1,0 +1,53 @@
+﻿@model LibraryProject_.Models.Contact
+
+@{
+    ViewBag.Title = "Contact";
+}
+<h2 class="alert alert-info mt-3">Contact Us</h2>
+
+@using (@Html.BeginForm("Save", "Home"))
+{
+    @Html.ValidationSummary(true, "Please Fix the following errors.")
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Message)
+        @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Message)
+    </div>
+    <br>
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary mb-3">Save</button>
+}
+
+
+
+<section id="contact-info" class="bg-dark">
+    <div class="container bg-danger">
+        <div class="box">
+            <h3>Location</h3>
+            <p>50 Main st, Boston MA</p>
+        </div>
+        <div class="box">
+            <h3>Phone Number</h3>
+            <p>(617) 555-5555</p>
+        </div>
+        <div class="box">
+            <h3>Email Address</h3>
+            <p>team11@tanta.com</p>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="clr"></div>

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<LibraryProject_.Models.Book>
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="images-container">
+    <div class="row">
+        @foreach (var c in Model)
+        {
+
+            if (@c.avaliable) { 
+        <div class="col-sm-4">
+            <div class="cards-container">
+                <div class="card myCard" style="width: 15rem; margin: auto; " >
+                    <img class="card-img-top" style="height: 150px; width: 150px; text-align: center; margin: auto;"
+                         src="~/Content/images/@c.Url"
+                         alt="Card image cap" />
+                    <div class="content-card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center text-capitalize">@c.Title</h5>
+                            <a href="/Books/BookDetails/@c.Id" class="btn btn-primary" style="display: list-item;">Book Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            }
+        }
+    </div>
+</div>
+

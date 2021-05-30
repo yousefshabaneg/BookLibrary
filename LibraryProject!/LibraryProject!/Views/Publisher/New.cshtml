@@ -1,0 +1,24 @@
+﻿@model LibraryProject_.Models.publisher
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="alert alert-info mt-3">@ViewBag.Name</h2>
+@using (@Html.BeginForm("save", "Publisher"))
+{
+    @Html.ValidationSummary(true, "Please Fix the following errors.")
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Address)
+        @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Address)
+    </div>
+    <br>
+    
+    <button type="submit" class="btn btn-primary">Save</button>
+}

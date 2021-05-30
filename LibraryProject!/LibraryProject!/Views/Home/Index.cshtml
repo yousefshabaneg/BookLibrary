@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="showcase">
+    <div class="container">
+        <div class="showcase-content">
+            <h1><span class="text-header">Enjoy Books</span> for Free</h1>
+            <p class="lead" style="font-weight:500">
+                Getting ebooks and audiobooks from your school is quick and easy with Sora. Just sign in with your school account and borrow & read books with one tap!
+            </p>
+            @Html.ActionLink("About our Library", "about", "Home", new { @class = "btn btn-info" })
+        </div>
+    </div>
+</div>
+<section id="home-info" class="bg-dark">
+    <div class="info-img"></div>
+    <div class="info-content bg-primary">
+        <h1><span class="text-warning">The History</span> Of Our Library</h1>
+        <p class="lead">
+            Your library provides a critical service to the community, offering an invaluable reading and learning resource to users of all ages. Expand your reach and engagement even further with a digital collection. An OverDrive digital collection allows libraries to extend beyond their physical walls and offer anytime, anywhere access to ebooks, audiobooks and streaming video.
+        </p>
+    </div>
+</section>
+<section id="features">
+    <div class="box bg-light">
+        <h3>Kindle</h3>
+        <p>
+            Any title your library purchases is also available via Kindle, provided a Kindle version of the book exists.
+        </p>
+    </div>
+    <div class="box bg-warning">
+        <h3>
+            Sonos Speakers
+        </h3>
+        <p>
+            Libby is compatible with Apple CarPlay and Android Auto, allowing you to listen to audiobooks through your car’s sound system.
+        </p>
+    </div>
+    <div class="box bg-light">
+        <h3>
+            Device Profiles
+            </h3>
+        <p>
+            Our browser-based OverDrive Read and Listen allow users to enjoy ebooks and audiobooks instantly with no software or downloads required.
+        </p>
+    </div>
+</section>
+<div class="clr"></div>
+

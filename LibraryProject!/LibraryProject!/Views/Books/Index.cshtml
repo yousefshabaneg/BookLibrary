@@ -1,0 +1,59 @@
+﻿@model IEnumerable<LibraryProject_.Models.Book>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br>
+@Html.ActionLink("New Book", "New", "Books", new { @class = "btn mb-3" })
+<br>
+
+<h2 class="alert alert-info">Books</h2>
+
+@if (!Model.Any())
+{
+    <p>we dont have books</p>
+}
+else {
+<table class="table table-bordered table-hover"  >
+    <thead>
+        <tr class="table-danger">
+            <th>Title</th>
+            <th>Author</th>
+            <th>Price$</th>
+            <th>Publisher</th>
+            <th>IsAvaliable</th>
+            <th>Actions</th>
+        </tr>
+       
+    </thead>
+    <tbody>
+@foreach (var b in Model)
+{ 
+    using (Html.BeginForm("Delete", "Books", new { id = b.Id }))
+    {
+        <tr class="table-warning">
+        <td>@Html.ActionLink(b.Title, "BookDetails", "Books", new { id = b.Id }, null)</td>
+        <td>@b.Author</td>
+        <td>@b.Price$</td>
+        <td>@b.publisher.Name</td>
+        @if (@b.avaliable == true)
+        {
+            <td>Yes</td>
+        }
+        else
+        {
+            <td>No</td>
+        }
+        <td>
+            <a class="btn mr-2" href="/Books/Edit/@b.Id">Edit</a>
+                <input type="submit" value="Delete" class="btn btn-danger"
+                       onclick="return confirm('Are you sure to delete this Book with ID = @b.Id');" />
+        </td>
+    </tr>
+    }
+
+}
+    </tbody>
+</table>
+}
+
